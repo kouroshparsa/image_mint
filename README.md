@@ -14,22 +14,28 @@
   `dpkg --list|grep chrome`
 - After that, you can install the package using pip:
   ```
-  pip install image_scraper
+  pip install image_mint
   ```
 
 # Usage:
 You can use the package in python code like so:
 ```python
-    from image_scraper import Scraper  
-    from image_scraper.engines import Google
+    from image_mint import Scraper  
+    from image_mint.engines import Google
     scraper = Scraper(Google('c:/temp/animals/chromedriver.exe'))
     scraper.download("cat", "c:/temp/animals/images", limit=100, min_width=200)
 ```
 
+**Example on Windows**
 You can also use command line:
+
 ```
-python image_scraper\console.py -c C:\temp\animals\chromedriver.exe -d C:\temp\animals\images -e Bing "Wild cats" -l 20 -mw 200
+image_mint.exe -c C:\temp\animals\chromedriver.exe -d C:\temp\animals\images -e Bing "Wild cats" -l 20 -mw 200
 ```
+Note that the windows executable can be downloaded from
+`https://github.com/kouroshparsa/image_mint/blob/main/image_mint/bin/image_mint.exe`
+
+
 Here are the flags that can be used:
 - `-e` : the search engine, possible values: DogPile/Bing/Google/DuckDuckGo/Yahoo
 - `-d` : the destination folder to download images to
@@ -38,7 +44,8 @@ Here are the flags that can be used:
 - `-mw` : minimum width
 - `-mh` : minimum height
 
+**Example on Linus**
 You can use other languages as well:
 ```
-python image_scraper\console.py -c /tmp/chromedriver.exe -d /tmp/images -e Google "πλοίο" -l 20 -mw 200
+image_mint -c /tmp/chromedriver.exe -d /tmp/images -e Google "πλοίο" -l 20 -mw 200
 ```
