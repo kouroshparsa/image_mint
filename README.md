@@ -1,10 +1,10 @@
-<i>image_scraper</i>
+<i>image_mint</i>
 
-#Purpose
-- This python package can be used to download images from various search engines.
+# Purpose
+- This python package can be used to search for and download images from various search engines.
   You can specify minimum width and height of the image if you want.
 
-#Installation
+# Installation
 - You must have Chrome browser installed. You can download it from https://www.google.com/chrome/
   On Ubuntu, you can run:
   ```wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -17,7 +17,7 @@
   pip install image_scraper
   ```
 
-#Usage:
+# Usage:
 You can use the package in python code like so:
 ```python
     from image_scraper import Scraper  
