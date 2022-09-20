@@ -7,7 +7,7 @@ image_mint is a python package for downloading images from search engines
   https://github.com/kouroshparsa/image_mint
 """
 from setuptools import setup, find_packages
-version = '1.0.1'
+version = '1.0.2'
 long_description = ''
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -37,6 +37,6 @@ setup(
         "Operating System :: OS Independent",
     ),
     entry_points={
-        'console_scripts': ['image_mint=image_mint.console:main'],
+        'console_scripts': ['image_mint = image_mint.console:main'],
     }
 )

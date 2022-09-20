@@ -15,7 +15,7 @@ from urllib.parse import quote
 import time
 import logging
 logging.basicConfig(level='INFO')
-logger = logging.getLogger(__name__).setLevel(logging.WARNING)
+logger = logging.getLogger(__name__)
 
 
 def __is_img_size_good(image_path, min_width, min_height):
@@ -183,10 +183,10 @@ class SearchEngine(object):
                 class_name = img.get_attribute("class")
                 class_check = True
                 if self.img_class_ref is not None:
-                    class_check = class_name.contains(self.img_class_ref)
+                    class_check = self.img_class_ref) in class_name
 
-                if src is not None and not src.endswith('.svg') and not src.startswith('data:image/svg')\
-                        and class_check:
+                if src is not None and not src.endswith('.svg') and not src.startswith('data:image/svg') \
+                        and class_check is True:
                     if src not in images:
                         images.add(src)
                         yield src
