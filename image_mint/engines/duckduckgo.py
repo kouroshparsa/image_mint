@@ -6,6 +6,7 @@ from urllib.parse import quote
 
 
 class DuckDuckGo(SearchEngine):
+    """Implementation of DuckDuckGo search engine"""
     def __init__(self, *args):
         super().__init__(*args)
         self.img_class_ref = 'tile--img__img'

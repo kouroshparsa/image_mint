@@ -49,3 +49,9 @@ You can use other languages as well:
 ```
 image_mint -c /tmp/chromedriver -d /tmp/images -e Google "πλοίο" -l 20 -mw 200
 ```
+On some linux environment particularly Docker images, it is possible that after installing the package it does not recognize the image_mint executable.
+In that case, run:
+```bash
+export PATH=$PATH:~/.local/bin
+```
+or if you want it persist, add it to ~/.bashrc

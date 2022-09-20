@@ -7,10 +7,10 @@ from urllib.parse import quote
 
 
 class Bing(SearchEngine):
-
+    """Implementation of Bing search engine"""
     def __init__(self, *args):
         super().__init__(*args)
-        self.img_class_ref = 'mimg'
+        self.img_class_ref = None
         self.has_next_result_btn = True
         self.must_type_search = False
 
@@ -20,5 +20,4 @@ class Bing(SearchEngine):
 
     def _get_next_btn(self):
         return self.driver.find_element(By.CLASS_NAME, "btn_seemore")
-
 

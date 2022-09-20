@@ -165,7 +165,7 @@ class SearchEngine(object):
             search_field.send_keys(f"{search}\n")
 
         images = set()
-        for page_num in range(10):
+        for _ in range(10):
             body = self.driver.find_element(By.TAG_NAME, 'body')
             reached_page_end = False
             last_height = self.driver.execute_script("return document.body.scrollHeight")
@@ -183,7 +183,7 @@ class SearchEngine(object):
                 class_name = img.get_attribute("class")
                 class_check = True
                 if self.img_class_ref is not None:
-                    class_check = self.img_class_ref) in class_name
+                    class_check = self.img_class_ref in class_name
 
                 if src is not None and not src.endswith('.svg') and not src.startswith('data:image/svg') \
                         and class_check is True:
@@ -240,7 +240,7 @@ class Scraper(object):
             if download_file(directory, filename, url, min_width, min_height):
                 url_log = ''
                 if url.startswith('http'):
-                    url_log = f'from {url}'
+                    url_log = f' from {url}'
                 logger.info(f"Downloaded file: {filename}{url_log}")
                 img_count += 1
 

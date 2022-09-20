@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 
 
 class DogPile(SearchEngine):
-
+    """Implementation of DogPile search engine"""
     def __init__(self, *args):
         super().__init__(*args)
         self.img_class_ref = None

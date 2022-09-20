@@ -1,12 +1,13 @@
 """
 Template for extracting image links on google
 """
+from urllib.parse import quote
 from image_mint import SearchEngine
 from selenium.webdriver.common.by import By
-from urllib.parse import quote
 
 
 class Google(SearchEngine):
+    """Implementation of Google search engine"""
     def __init__(self, *args):
         super().__init__(*args)
         self.img_class_ref = 'rg_i'
@@ -19,4 +20,3 @@ class Google(SearchEngine):
 
     def _get_next_btn(self):
         return self.driver.find_element(By.XPATH, "//input[@value='Show more results']")
-

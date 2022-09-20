@@ -7,9 +7,10 @@ from urllib.parse import quote
 
 
 class Yahoo(SearchEngine):
+    """Implementation of Yahoo search engine"""
     def __init__(self, *args):
         super().__init__(*args)
-        self.img_class_ref = 'tile--rg_i'
+        self.img_class_ref = None
         self.has_next_result_btn = True
         self.must_type_search = False
 
@@ -19,5 +20,3 @@ class Yahoo(SearchEngine):
 
     def _get_next_btn(self):
         return self.driver.find_element(By.XPATH, "//button[@value='more-res']")
-
-
