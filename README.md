@@ -47,5 +47,5 @@ Here are the flags that can be used:
 **Example on Linus**
 You can use other languages as well:
 ```
-image_mint -c /tmp/chromedriver.exe -d /tmp/images -e Google "πλοίο" -l 20 -mw 200
+image_mint -c /tmp/chromedriver -d /tmp/images -e Google "πλοίο" -l 20 -mw 200
 ```

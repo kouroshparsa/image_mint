@@ -37,6 +37,6 @@ setup(
         "Operating System :: OS Independent",
     ),
     entry_points={
-        'console_scripts': ['image_mint=image_mint.console:main', 'bin\image_mint.exe'],
+        'console_scripts': ['image_mint=image_mint.console:main'],
     }
 )

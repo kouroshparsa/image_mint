@@ -13,6 +13,9 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 from urllib.parse import quote
 import time
+import logging
+logging.basicConfig(level='INFO')
+logger = logging.getLogger(__name__).setLevel(logging.WARNING)
 
 
 def __is_img_size_good(image_path, min_width, min_height):
@@ -95,6 +98,8 @@ class SearchEngine(object):
         options = Options()
         options.add_argument("--headless")
         options.add_argument("--log-level=3")
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
         self.driver = webdriver.Chrome(options=options, service=service_obj)
         self.driver.set_window_size(1505, 1000)
         self.next_page_btn = None
@@ -150,6 +155,7 @@ class SearchEngine(object):
         :return: either an image url or base64 encrypted image data
         This is a generator function
         """
+        logger.info('Scraping page links...')
         search_url = self._get_search_url(search)
         self.driver.get(search_url)
 
@@ -177,7 +183,7 @@ class SearchEngine(object):
                 class_name = img.get_attribute("class")
                 class_check = True
                 if self.img_class_ref is not None:
-                    class_check = class_name.startswith(self.img_class_ref)
+                    class_check = class_name.contains(self.img_class_ref)
 
                 if src is not None and not src.endswith('.svg') and not src.startswith('data:image/svg')\
                         and class_check:
@@ -232,6 +238,10 @@ class Scraper(object):
                 filename = f'{prefix}{img_filename_ind}{postfix}.{file_type}'
 
             if download_file(directory, filename, url, min_width, min_height):
+                url_log = ''
+                if url.startswith('http'):
+                    url_log = f'from {url}'
+                logger.info(f"Downloaded file: {filename}{url_log}")
                 img_count += 1
 
             if img_count >= limit:
