@@ -20,10 +20,10 @@
 # Usage:
 You can use the package in python code like so:
 ```python
-    from image_mint import Scraper  
-    from image_mint.engines import Google
-    scraper = Scraper(Google('c:/temp/animals/chromedriver.exe'))
-    scraper.download("cat", "c:/temp/animals/images", limit=100, min_width=200)
+from image_mint import Scraper  
+from image_mint.engines import Google
+scraper = Scraper(Google('c:/temp/animals/chromedriver.exe'))
+scraper.download("cat", "c:/temp/animals/images", limit=100, min_width=200)
 ```
 
 **Example on Windows**
